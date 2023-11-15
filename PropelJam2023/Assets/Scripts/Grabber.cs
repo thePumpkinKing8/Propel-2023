@@ -24,7 +24,7 @@ public class Grabber : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)//checks if nearby object is grabable and if it is remembers that object
     {
-        if(collision.tag == "Grabable")
+        if(collision.tag == "Player")
         {
             Debug.Log("grab");
             _object = collision.gameObject;
