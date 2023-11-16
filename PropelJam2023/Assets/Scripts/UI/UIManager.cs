@@ -10,13 +10,12 @@ public class UIManager : MonoBehaviour
     public bool SettingsOpen = false;
     public bool GameOverOpen = false;
     public bool PauseOpen = false;
+    public bool SoundOn = true;
 
     [SerializeField]
-    public GameObject SettingsScreen;
     public GameObject PauseScreen;
     public GameObject GameOverScreen;
-    public AudioClip ButtonClick;
-    public AudioClip PlayClick;
+    public AudioSource ButtonClickSound;
 
     private void Update()
     {
@@ -31,15 +30,14 @@ public class UIManager : MonoBehaviour
         TogglePause();
     }
 
+    public void PlayButtonSound()
+    {
+        ButtonClickSound.Play();
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("main");
-    }
-
-    public void ToggleSettings()
-    {
-        SettingsOpen = !SettingsOpen;
-        SettingsScreen.SetActive(SettingsOpen);
     }
 
     public void TogglePause()
@@ -53,11 +51,13 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Level1");
     }
 
-
     public void OnExitButton()
     {
         Application.Quit();
         EditorApplication.isPlaying = false;
     }
-
+    public void ToggleSound()
+    {
+        SoundOn = !SoundOn;
+    }
 }
