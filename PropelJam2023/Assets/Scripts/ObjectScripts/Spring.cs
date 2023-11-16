@@ -6,6 +6,6 @@ public class Spring : ActivatedObject
 {
     public override void Activate()
     {
-        base.Activate();
+        Debug.Log("player jumps");
     }
 }

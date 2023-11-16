@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,7 +10,7 @@ public class RotationArm : MonoBehaviour
     [SerializeField] private float radius;
 
     private Transform pivot;
-
+    private float _prevAngle = 0; 
     public UnityEvent<float> rotationEvent;
 
     void Start()
@@ -22,13 +23,15 @@ public class RotationArm : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        
         Vector3 orbVector = Camera.main.WorldToScreenPoint(orb.position);
         orbVector = Input.mousePosition - orbVector;
-        float angle = Mathf.Atan2(orbVector.y, orbVector.x) * Mathf.Rad2Deg;
-
+        float angle = ((Mathf.Atan2(orbVector.y, orbVector.x) * Mathf.Rad2Deg) + 360)% 360;
         pivot.position = orb.position;
         pivot.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-        rotationEvent.Invoke(angle);
+        Debug.Log(angle - _prevAngle);
+        rotationEvent.Invoke(angle - _prevAngle);
+        _prevAngle = angle;
         
     }
 
