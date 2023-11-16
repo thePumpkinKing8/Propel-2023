@@ -124,7 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed3bf5b4a5cb7b409d90ef65590ff40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pivot: {fileID: 5675675020244105574}
+  orb: {fileID: 4729945689582730470}
+  radius: 1.5
+  rotationEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5675675020244105574
 GameObject:
   m_ObjectHideFlags: 0

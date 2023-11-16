@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class RotationArm : MonoBehaviour
 {
-    public Transform orb;
-    public float radius;
+    [SerializeField] private Transform orb;
+    [SerializeField] private float radius;
 
     private Transform pivot;
 
