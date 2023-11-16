@@ -10,7 +10,6 @@ public class Lever : MonoBehaviour
 
     public void Clicked()
     {
-        Debug.Log("huh");
         _on = !_on;
         LeverPull.Invoke(_on);
     }
