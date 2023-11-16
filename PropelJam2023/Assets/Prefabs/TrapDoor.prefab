@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 7
 --- !u!1 &571144627122812607
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 7
 --- !u!1 &1120790132965896620
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20548decd189f704cbb46294262d2a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLocal: 1
   _rightPivot: {fileID: 2599941413880500221}
   _leftPivot: {fileID: 8406022444414932619}
   _speed: 5

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)//turns around when hitting wall
     {
         _velocity *= new Vector2(-1, 0);
-        _spriteRenderer.flipX = !_spriteRenderer.flipX;
+        this.gameObject.transform.localScale *= new Vector2(-1,1);
     }
 
 

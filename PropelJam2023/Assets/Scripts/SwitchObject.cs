@@ -17,10 +17,18 @@ public class SwitchObject : MonoBehaviour
             
         }
     }
+    [SerializeField] private bool _isLocal; // will allow multiple switches to effect this object naturally
 
     public virtual void TurnOnOrOff(bool value)
     {
-        on = value;
+        if (_isLocal)
+        {
+            on = value;
+        }
+        else
+        {
+            on = !on;
+        }
     }
     
         
