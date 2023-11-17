@@ -5,10 +5,31 @@ using UnityEngine;
 public class SwitchObject : MonoBehaviour
 {
     private bool _on = false;
-
-    public void TurnOnOrOff(bool value)
+    protected bool on
     {
-        _on = value;
+        get
+        {
+            return _on;
+        }
+        set
+        {
+            _on = value;
+            
+        }
     }
+    [SerializeField] private bool _isLocal; // will allow multiple switches to effect this object naturally
+
+    public virtual void TurnOnOrOff(bool value)
+    {
+        if (_isLocal)
+        {
+            on = value;
+        }
+        else
+        {
+            on = !on;
+        }
+    }
+    
         
 }
