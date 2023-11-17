@@ -18,7 +18,7 @@ public class UpDownLeftRight : MonoBehaviour
             Vector3.zero
         };
 
-    private void OnMouseDown()//sends the chosen direction
+    private void OnMouseDrag()
     {
         DirectionPressed.Invoke(_direction[((int)direction)]);
     }

@@ -52,4 +52,18 @@ public class Elevator : MonoBehaviour
 
     }
 
+    public void MoveDirection(Vector3 direction)
+    {
+        _moving = true;
+        if(direction == Vector3.up)
+        {
+            transform.position = Vector3.Lerp(transform.position, _target.position, _speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, _position, _speed * Time.deltaTime);
+        }
+        
+    }
+
 }

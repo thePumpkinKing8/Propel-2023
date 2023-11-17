@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
     private void Update()
     {
@@ -65,13 +65,12 @@ public class UIManager : MonoBehaviour
 
     public void OnStartButton()
     {
-        SceneManager.LoadScene("Level1");
+        GameManager.Instance.NextScene();
     }
 
     public void OnExitButton()
     {
         Application.Quit();
-        EditorApplication.isPlaying = false;
     }
     public void OnMuteButton()
     {
@@ -80,11 +79,13 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Sound is off");
             ButtonImage.sprite = SoundOffSprite;
+            GameManager.Instance.GetComponent<AudioSource>().Pause();
         }
         else if (!IsMuted)
         {
             Debug.Log("Sound is on");
             ButtonImage.sprite = SoundOnSprite;
+            GameManager.Instance.GetComponent<AudioSource>().Play();
         }
     }
     

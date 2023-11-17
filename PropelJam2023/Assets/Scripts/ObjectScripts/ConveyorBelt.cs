@@ -1,32 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+//conveyor belts dont work for some reason
 public class ConveyorBelt : MonoBehaviour
 {
-    private SurfaceEffector2D _surfaceEffector;
     [SerializeField] private float _speed;
-    [SerializeField] private bool _directionRight = true;
     [SerializeField] private bool _on;
+    [SerializeField] private Grabber _grabber;
+
+    public UnityEvent swap;
     // Start is called before the first frame update
     void Start()
     {
-        _surfaceEffector = GetComponentInChildren<SurfaceEffector2D>();
-        
-        
+       _grabber = GetComponent<Grabber>();
+      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_directionRight == true && _on)
-        {
-            _surfaceEffector.speed = Mathf.Abs(_speed);
-        }
-        else if(_directionRight == false && _on)
-        {
-            _surfaceEffector.speed  = -1f * _speed;
-        }
+       
     }
 
     public void ChangeState()
@@ -36,7 +31,15 @@ public class ConveyorBelt : MonoBehaviour
 
     public void ChangeDirection()
     {
-        _directionRight = !_directionRight;
+        _speed *= -1;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+           swap.Invoke();
+        }
     }
 
 }
