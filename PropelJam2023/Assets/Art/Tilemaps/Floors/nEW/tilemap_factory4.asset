@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: tilemap_factory4
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 6ad039f0837388c4a9485fd15faf9f63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d19fd5c70c938ab4db5f46be75615f12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

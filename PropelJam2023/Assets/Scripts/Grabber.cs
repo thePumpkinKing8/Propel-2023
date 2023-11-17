@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Grabber : MonoBehaviour
 {
-    public GameObject Object
+    public Player Object
     {
         get { return _object; }
     }
 
-    private GameObject _object = null;
+    private Player _object = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +22,12 @@ public class Grabber : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)//checks if nearby object is grabable and if it is remembers that object
+    private void OnCollisionEnter2D(Collision2D collision)//checks if nearby object is grabable and if it is remembers that object
     {
-        if(collision.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             Debug.Log("grab");
-            _object = collision.gameObject;
+            _object = collision.gameObject.GetComponent<Player>();
         }
     }
 
