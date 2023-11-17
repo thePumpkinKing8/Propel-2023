@@ -16,11 +16,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     public GameObject PauseScreen;
     public GameObject GameOverScreen;
+    public GameObject LevelInfoSplashScreen;
     public Image ButtonImage;
     public Sprite SoundOnSprite;
     public Sprite SoundOffSprite;
     public AudioSource ButtonClickSound;
 
+    public void Start()
+    {
+        Time.timeScale = 0;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -47,6 +52,14 @@ public class UIManager : MonoBehaviour
     public void TogglePause()
     {
         PauseOpen = !PauseOpen;
+        if(PauseOpen)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         PauseScreen.SetActive(PauseOpen);
     }
 
@@ -74,5 +87,10 @@ public class UIManager : MonoBehaviour
             ButtonImage.sprite = SoundOnSprite;
         }
     }
-
+    
+    public void CloseLevelInfo()
+    {
+        Destroy(LevelInfoSplashScreen);
+        Time.timeScale = 1;
+    }
 }
