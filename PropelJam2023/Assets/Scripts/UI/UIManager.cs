@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -10,11 +11,14 @@ public class UIManager : MonoBehaviour
     public bool SettingsOpen = false;
     public bool GameOverOpen = false;
     public bool PauseOpen = false;
-    public bool SoundOn = true;
+    public bool IsMuted = false;
 
     [SerializeField]
     public GameObject PauseScreen;
     public GameObject GameOverScreen;
+    public Image ButtonImage;
+    public Sprite SoundOnSprite;
+    public Sprite SoundOffSprite;
     public AudioSource ButtonClickSound;
 
     private void Update()
@@ -56,8 +60,19 @@ public class UIManager : MonoBehaviour
         Application.Quit();
         EditorApplication.isPlaying = false;
     }
-    public void ToggleSound()
+    public void OnMuteButton()
     {
-        SoundOn = !SoundOn;
+        IsMuted = !IsMuted;
+        if (IsMuted)
+        {
+            Debug.Log("Sound is off");
+            ButtonImage.sprite = SoundOffSprite;
+        }
+        else if (!IsMuted)
+        {
+            Debug.Log("Sound is on");
+            ButtonImage.sprite = SoundOnSprite;
+        }
     }
+
 }
